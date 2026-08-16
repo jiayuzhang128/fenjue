@@ -1,0 +1,4 @@
+interface:
+  display_name: "开发目标执行"
+  short_description: "按用户点名的阶段做开发目标。计划先送审再动手；完成结论先经对抗式审查再收工。"
+  default_prompt: "用 $development-goal-execution 做这个目标。费 token 是预期的。用户点名的阶段就是停点，不要跳门。"

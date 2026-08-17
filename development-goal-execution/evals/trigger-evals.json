@@ -1,0 +1,82 @@
+[
+  {
+    "query": "我要给用户中心加一个导出账单的功能，走三阶段，先把实施与验收计划写出来给我看",
+    "should_trigger": true
+  },
+  {
+    "query": "开发目标：把现在的轮询拉取改成 websocket 推送，按流程来，别跳步",
+    "should_trigger": true
+  },
+  {
+    "query": "计划在 docs/migration-plan.md 里，昨天已经评审 PASS 了，评审通过后执行，别改方案",
+    "should_trigger": true
+  },
+  {
+    "query": "上次那个数据迁移你说做完了，我不太放心，来一轮对抗式审查，推翻不了再算完",
+    "should_trigger": true
+  },
+  {
+    "query": "这个支付模块重构风险挺大的，我宁可多花点时间多走几步，也不想上线后返工，你先规划再动手",
+    "should_trigger": true
+  },
+  {
+    "query": "给这份计划做个计划评审，只要 VERDICT: PASS 或 FAIL，别的不用说",
+    "should_trigger": true
+  },
+  {
+    "query": "改完了就做执行后验收吧，验收项计划里都列了，一条条跑",
+    "should_trigger": true
+  },
+  {
+    "query": "帮我把这个重试逻辑的目标做完，验收通过为止，中间失败就修到过",
+    "should_trigger": true
+  },
+  {
+    "query": "development goal: add rate limiting to the public API endpoints, write the implementation and acceptance plan first before touching any code",
+    "should_trigger": true
+  },
+  {
+    "query": "the plan got a PASS yesterday, now execute the approved plan only, no scope changes, then run acceptance",
+    "should_trigger": true
+  },
+  {
+    "query": "帮我把 README 里的几个错别字改一下",
+    "should_trigger": false
+  },
+  {
+    "query": "把 config.yaml 里的超时从 30 秒改成 60 秒就行，一行的事",
+    "should_trigger": false
+  },
+  {
+    "query": "线上接口 500 了，帮我看看 logs/app.log 排查一下是什么原因",
+    "should_trigger": false
+  },
+  {
+    "query": "解释一下这个仓库的鉴权流程是怎么走的，不用改代码",
+    "should_trigger": false
+  },
+  {
+    "query": "帮我 review 一下这个 PR 的代码质量，重点看有没有安全问题",
+    "should_trigger": false
+  },
+  {
+    "query": "给我们团队 Q3 做一个产品路线图规划，列出每个月的里程碑",
+    "should_trigger": false
+  },
+  {
+    "query": "写个一次性脚本统计一下 src 下每个文件的行数，跑完就删",
+    "should_trigger": false
+  },
+  {
+    "query": "验收一下这批 UI 设计稿符不符合我们的品牌规范",
+    "should_trigger": false
+  },
+  {
+    "query": "what does this parseToken function do? just explain it, don't change anything",
+    "should_trigger": false
+  },
+  {
+    "query": "接口改名之后注释里还是旧名字，把注释里的旧接口名更新成新的",
+    "should_trigger": false
+  }
+]

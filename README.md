@@ -12,6 +12,8 @@
 |---|---|---|
 | [焚诀·开发目标执行篇](development-goal-execution/SKILL.md)<br>`development-goal-execution` | 专为 /goal 而生。六门心法：上下文恢复 → 第一性规划 → 第三方评审 → 规范化执行 → 全覆盖验收 → 对抗式审查。计划过别人的手，结论过敌人的眼 | 用户给出开发目标，或点名其中某一阶段；按点名的门做到停点 |
 
+| [扁平粉彩文档配图](flat-doc-diagrams/SKILL.md)<br>`flat-doc-diagrams` | 马卡龙扁平块配图双引擎:matplotlib 出 PNG,draw.io 出可手调源文件;分层/流程/阶段图全适配 | 技术文档要配架构图、流程图、路线图;或 mermaid 默认输出不够体面 |
+
 每篇的完整心法看各自目录下的 SKILL.md。
 
 ## 修习（安装）

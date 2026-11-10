@@ -1,16 +1,26 @@
 """Three reference templates in the flat pastel style: layered architecture, closed-loop flow, stage roadmap.
 
-Run: python scripts/demo.py [output_dir]   (default: examples/ next to scripts/)
+Run: python scripts/demo.py [output_dir] [--drawio]   (default: examples/ next to scripts/)
+--drawio draws the same three figures through flatdrawio and writes editable .drawio files plus PNG previews.
 """
 import sys
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
-from flatfig import (  # noqa: E402
-    ACCENT, LOOP, MUTED, PALETTE, STAGE, bracket, box, canvas, diamond, junction, label_column, layer, line, note,
-    path_arrow, rect, row_boxes, save, text,
-)
+DRAWIO = "--drawio" in sys.argv
+EXT = ".drawio" if DRAWIO else ".png"
+
+if DRAWIO:
+    from flatdrawio import (  # noqa: E402
+        ACCENT, LOOP, MUTED, PALETTE, STAGE, bracket, box, canvas, diamond, junction, label_column, layer, line,
+        note, path_arrow, rect, row_boxes, save, text,
+    )
+else:
+    from flatfig import (  # noqa: E402
+        ACCENT, LOOP, MUTED, PALETTE, STAGE, bracket, box, canvas, diamond, junction, label_column, layer, line,
+        note, path_arrow, rect, row_boxes, save, text,
+    )
 
 
 def layered_architecture(out):
@@ -31,7 +41,7 @@ def layered_architecture(out):
     panel_x, panel_w = layer(ax, 890, 160, "贯穿机制", "gray", label_w=230, right=1940)
     row_boxes(ax, panel_x + 25, 925, panel_w - 50, 90, ["统一追溯", "配置基线", "任务状态", "质量门禁", "人工审核", "过程审计"],
               PALETTE["gray"]["box"], gap=24, size=15)
-    return save(fig, out / "template_layered_architecture.png")
+    return save(fig, out / ("template_layered_architecture" + EXT))
 
 
 def closed_loop_flow(out):
@@ -75,7 +85,7 @@ def closed_loop_flow(out):
     path_arrow(ax, [(1345, 445), (1345, 640), (1000, 640)], color=LOOP)
     note(ax, 1172, 616, "否 · 脚本问题", size=10)
     path_arrow(ax, [(600, 640), (235, 640), (235, 394)], color=LOOP)
-    return save(fig, out / "template_closed_loop_flow.png")
+    return save(fig, out / ("template_closed_loop_flow" + EXT))
 
 
 def stage_roadmap(out):
@@ -101,11 +111,12 @@ def stage_roadmap(out):
     bracket(ax, 1030, 1950, 65, "后续实施方向", color=MUTED)
     path_arrow(ax, [(265, 610), (265, 660), (515, 660), (515, 350), (540, 350)], dashed=True, color=LOOP)
     note(ax, 392, 682, "配套实施")
-    return save(fig, out / "template_stage_roadmap.png")
+    return save(fig, out / ("template_stage_roadmap" + EXT))
 
 
 def main():
-    out = Path(sys.argv[1]) if len(sys.argv) > 1 else Path(__file__).resolve().parent.parent / "examples"
+    args = [arg for arg in sys.argv[1:] if arg != "--drawio"]
+    out = Path(args[0]) if args else Path(__file__).resolve().parent.parent / "examples"
     total = layered_architecture(out) + closed_loop_flow(out) + stage_roadmap(out)
     print(f"total lint warnings: {total}")
 

@@ -1,0 +1,66 @@
+[
+  {
+    "query": "给这份方案文档配一张系统总体架构图，分接入层、处理层、应用层，放 Word 里要好看",
+    "should_trigger": true
+  },
+  {
+    "query": "mermaid 画出来的流程图贴进 Word 太丑了，换一种专业点的画法重画这张业务流程图",
+    "should_trigger": true
+  },
+  {
+    "query": "技术路线图帮我画一下，四个阶段，前两个阶段标成当前实施重点",
+    "should_trigger": true
+  },
+  {
+    "query": "照着文档里已有那几张马卡龙色扁平块的图，再补一张部署架构图，风格要一致",
+    "should_trigger": true
+  },
+  {
+    "query": "这张闭环流程图我后面还要自己手动微调，给我一个 draw.io 能打开的可编辑源文件",
+    "should_trigger": true
+  },
+  {
+    "query": "需求文档第三章缺一张生成、验证、修正的闭环过程图，带人工审核节点",
+    "should_trigger": true
+  },
+  {
+    "query": "汇报 PPT 里要一张分层架构图，左边层名、右边模块，底下一条贯穿机制",
+    "should_trigger": true
+  },
+  {
+    "query": "上次那张实施路径图里第二阶段的子步骤改了，重新出图，.drawio 也一起更新",
+    "should_trigger": true
+  },
+  {
+    "query": "把这个季度各线路的故障次数画成柱状图",
+    "should_trigger": false
+  },
+  {
+    "query": "用 mermaid 写一个时序图，描述登录接口的调用过程",
+    "should_trigger": false
+  },
+  {
+    "query": "帮我看一下这张架构图截图里的模块是什么意思",
+    "should_trigger": false
+  },
+  {
+    "query": "给公众号文章配一张封面图，要有科技感",
+    "should_trigger": false
+  },
+  {
+    "query": "这张 drawio 导出的 PNG 太大了，压缩到 500K 以内",
+    "should_trigger": false
+  },
+  {
+    "query": "画一张数据库 ER 图，把表和外键关系都标出来",
+    "should_trigger": false
+  },
+  {
+    "query": "把这篇论文的实验结果画成 Nature 风格的折线图",
+    "should_trigger": false
+  },
+  {
+    "query": "把方案文档第四章的文字润色一下，图不用动",
+    "should_trigger": false
+  }
+]

@@ -146,16 +146,23 @@ def line(ax, pts, color=ARROW, lw=2.0, dashed=False):
 
 
 def path_arrow(ax, pts, color=ARROW, lw=2.0, dashed=False, both=False):
-    """Orthogonal polyline whose last segment carries the arrow head; start/end on box edge midpoints."""
+    """Orthogonal polyline with an arrow head at its end (both=True: at both ends); start/end on box edge midpoints."""
     _segments(ax, pts)
     style = "--" if dashed else "-"
-    for (x1, y1), (x2, y2) in zip(pts[:-2], pts[1:-1]):
+
+    def head(tail, tip, arrowstyle):
+        ax.annotate("", xy=tip, xytext=tail, zorder=5,
+                    arrowprops={"arrowstyle": arrowstyle, "color": color, "lw": lw, "ls": style,
+                                "shrinkA": 0, "shrinkB": 0, "mutation_scale": 18})
+
+    plain = list(zip(pts[:-2], pts[1:-1]))
+    if both and plain:
+        head(pts[1], pts[0], "-|>")
+        plain = plain[1:]
+    for (x1, y1), (x2, y2) in plain:
         ax.plot([x1, x2], [y1, y2], color=color, lw=lw, ls=style, solid_capstyle="butt", dash_capstyle="butt",
                 zorder=4)
-    (x1, y1), (x2, y2) = pts[-2], pts[-1]
-    ax.annotate("", xy=(x2, y2), xytext=(x1, y1), zorder=5,
-                arrowprops={"arrowstyle": "<|-|>" if both else "-|>", "color": color, "lw": lw, "ls": style,
-                            "shrinkA": 0, "shrinkB": 0, "mutation_scale": 18})
+    head(pts[-2], pts[-1], "<|-|>" if both and len(pts) == 2 else "-|>")
 
 
 def diamond(ax, x, y, w, h, s, fill, size=13):
